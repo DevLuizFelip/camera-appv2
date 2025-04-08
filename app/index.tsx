@@ -5,6 +5,7 @@ import Icon from '@expo/vector-icons/FontAwesome6'
 import { ButtonCameraRotation } from "../components/buttonCameraRotation";
 import { ButtonFlash } from "../components/buttonFlash";
 import { ButtonChange } from "../components/buttonChange";
+import { ButtonPercent } from "../components/buttonPercent";
 
 
 type CameraFacing = "front" | "back"
@@ -80,6 +81,7 @@ export default function Page() {
     }
     return (
         <ScrollView>
+            
         <View style={styles.container}>
             <CameraView
             ref={cameraRef}
@@ -98,18 +100,19 @@ export default function Page() {
                     <ButtonFlash icon="bolt-lightning" onPress={handleCameraFlash}/>
                     {/* <ButtonChange/> */}
                     {/* <Text>FLASH: {cameraFlash}</Text> */}
+
                 </View>
                 <View>
                     {/* <Text>QR: {qrResult}</Text> */}
                 </View>
                 
-                <View style={styles.zoomContainer}>
-                    <Button title="0%" onPress={() => setCameraZoom(0)}/>
-                    <Button title="25%" onPress={() => setCameraZoom(0.25)} />
-                    <Button title="50%" onPress={() => setCameraZoom(0.5)} />
-                    <Button title="75%" onPress={() => setCameraZoom(0.75)} />
-                    <Button title="100%" onPress={() => setCameraZoom(1)} />
-                </View>
+                {/* <View style={styles.zoomContainer}>
+                    <ButtonPercent title="0%" onPress={() => setCameraZoom(0)} icon="percent"/>
+                    <ButtonPercent title="25%" onPress={() => setCameraZoom(0.25)} icon="percent"/>
+                    <ButtonPercent title="50%" onPress={() => setCameraZoom(0.5)} icon="percent"/>
+                    <ButtonPercent title="75%" onPress={() => setCameraZoom(0.75)} icon="percent"/>
+                    <ButtonPercent title="100%" onPress={() => setCameraZoom(1)} icon="percent"/>
+                </View> */}
                 <View>
                     <Button title="Tirar Foto" onPress={handleTakePicture}/>
                 </View>
@@ -133,7 +136,7 @@ const styles = StyleSheet.create({
     },
     zoomContainer:{
         flexDirection: 'row',
-        justifyContent: 'space-around'
+        justifyContent: 'space-evenly',
     },
     photo:{
         width: 200,
@@ -143,7 +146,7 @@ const styles = StyleSheet.create({
     footButtons:{
         flexDirection:"row",
         justifyContent: "space-between",
-        padding: 5 
+        padding: 5,
     },
     percent:{
         backgroundColor: 'red'
