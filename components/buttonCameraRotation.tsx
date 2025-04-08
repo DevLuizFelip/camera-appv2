@@ -1,6 +1,6 @@
 import { Pressable, StyleSheet } from "react-native";
 import Icon from '@expo/vector-icons/FontAwesome6'
-
+import { Ionicons } from '@expo/vector-icons';
 
 type Props= {
     icon: string,
@@ -9,7 +9,7 @@ type Props= {
 export const ButtonCameraRotation = ({icon, onPress}:Props) =>{
     return(
         <Pressable onPress={onPress}>
-            <Icon name={icon} size={30} />
+            <Ionicons name="camera-reverse-outline"  size={30}/>
         </Pressable>
     );
 }

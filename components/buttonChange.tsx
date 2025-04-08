@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
-import { TouchableOpacity } from 'react-native';
+import { Pressable, TouchableOpacity } from 'react-native';
 import Icon from '@expo/vector-icons/FontAwesome6'
+import { Ionicons } from '@expo/vector-icons';
 
-export const ButtonChange = () => {
+type Props={
+  onPress: ()=> void;
+}
+export const ButtonChange = ({onPress}:Props) => {
   const [iconeVisivel, setIconeVisivel] = useState(true);
 
   const alternarIcone = () => {
@@ -10,13 +14,15 @@ export const ButtonChange = () => {
   };
 
   return (
+    <Pressable onPress={onPress}>
     <TouchableOpacity onPress={alternarIcone}>
-      <Icon
-        name={iconeVisivel ? 'eye' : 'bolt-slash'} 
+      <Ionicons
+        name={iconeVisivel? "flash-off-outline" : "flash"}
         size={30}
         color="#333"
       />
     </TouchableOpacity>
+    </Pressable>
   );
 };
 
